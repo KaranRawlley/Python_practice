@@ -17,11 +17,19 @@ def search():    # searching function
     os.system('cls')
     if(ch==1):
         ele = int(input("Enter the element"))
-        i = arr.index(ele)
-        print(arr[i],i)
+        try:
+            i = arr.index(ele)
+            print(arr[i], i)
+        except:
+            print("Element not found")
+       
     else:
-        ind = int(input('Enter the index'))
-        print(arr[ind])
+        try:
+            ind = int(input('Enter the index'))
+            print(arr[ind])
+        except:
+            print("Index out of bound")
+        
 
 def addElement():
     print("1.Add at begining\n2.Add at end\n3.Add at specific index")
@@ -35,10 +43,20 @@ def addElement():
     else:
         ind = int(input("Enter index"))
         arr.insert(ind,ele)
+    print(arr)
 
 def remove():
-    ind = int(input("Enter index"))
-    arr.pop(ind)
+    try:
+        ind = int(input("Enter index"))
+        arr.pop(ind)
+    except:
+        print("Index out of bound")
+    print(arr)
+
+def sort():
+    arr.sort()
+    print(arr)
+
 
 inputArr()
 while(True):
@@ -48,14 +66,18 @@ while(True):
     os.system('cls')
     if(ch==1):
         search()
+       
     elif(ch==2):
         addElement()
+        
     elif(ch==3):
-        print(arr.sort())
+        sort()
     elif(ch==4):
         remove()
+        
     elif (ch==6):
         exit()
+        
 
 
 
